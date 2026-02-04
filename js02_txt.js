@@ -8,16 +8,23 @@ window.addEventListener("load", setupform);
 function setupform() {
       document.getElementById("photoNum").value = 1;
       document.getElementById("photoHrs").value = 2;
-      document.getElementById("makebook").checked = false;
+      document.getElementById("makeBook").checked = false;
       document.getElementById("photoRights").checked = false;
       document.getElementById("photoDist").value = 0;
+      
       getEstimate();
+
+      document.getElementById("photoNum").onchange = getEstimate;
+      document.getElementById("photoHrs").onchange = getEstimate;
+      document.getElementById("makeBook").onchange = getEstimate;
+      document.getElementById("photoRights").onchange = getEstimate;
+      document.getElementById("photoDist").onchange = getEstimate;
 }
 
 function getEstimate() {
       let totalCost = 0;
       let photographers = document.getElementById("photoNum").value;
-      let hours = document.getElementById("phtoHrs").value;
+      let hours = document.getElementById("photoHrs").value;
       let distance = document.getElementById("photoDist").value;
       let buyBook = document.getElementById("makeBook").checked;
       let buyRights = document.getElementById("photoRights").checked;
